@@ -9,7 +9,7 @@ import { ButtonOpts } from './button-options.interface';
       [class.active]="options.active"
       [class.fullWidth]="options.fullWidth"
       [class.mat-raised-button]="options.raised"
-      [disabled]="options.active === true || options.disabled === true">
+      [disabled]="options.active === true || disabled === true">
 
         <span *ngIf="!options.active">{{ options.text }}</span>
         <span *ngIf="options.active">{{ options.spinnerText }}</span>
@@ -19,7 +19,7 @@ import { ButtonOpts } from './button-options.interface';
           [color]="options.spinnerColor" 
           [mode]="options.mode"
           [value]="options.value"
-          *ngIf="options.active && options.disabled !== true">
+          *ngIf="options.active && disabled !== true">
         </mat-spinner>
 
     </button>
@@ -42,4 +42,5 @@ import { ButtonOpts } from './button-options.interface';
 })
 export class SpinnerButton {
   @Input() options: ButtonOpts;
+  @Input() disabled: boolean;
 }
